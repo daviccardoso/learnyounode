@@ -30,6 +30,5 @@ http.createServer((req, res) => {
     const parsedTime = dateParser[parser](time);
 
     res.writeHead(200, { 'Content-Type': 'application/json' });
-    res.write(JSON.stringify(parsedTime));
-    res.end();
+    res.end(JSON.stringify(parsedTime));
 }).listen(port);
