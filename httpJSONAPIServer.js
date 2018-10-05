@@ -3,14 +3,14 @@ const url = require('url');
 const port = process.argv[2];
 
 const dateParser = {
-    '/api/parsetime': date => {
+    'parsetime': date => {
         return {
             'hour': date.getHours(),
             'minute': date.getMinutes(),
             'second': date.getSeconds()
         };
     },
-    '/api/unixtime': date => {
+    'unixtime': date => {
         return {
             'unixtime': date.getTime()
         };
@@ -19,7 +19,7 @@ const dateParser = {
 
 http.createServer((req, res) => {
     const parsedURL = url.parse(req.url, true);
-    const parser = parsedURL.pathname;
+    const parser = parsedURL.pathname.split('/')[2];
 
     if (!parser in dateParser) {
         res.writeHead(404);
