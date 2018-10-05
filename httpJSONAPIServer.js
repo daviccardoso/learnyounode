@@ -3,14 +3,14 @@ const url = require('url');
 const port = process.argv[2];
 
 const dateParser = {
-    '/api/parsetime': (date) => {
+    '/api/parsetime': date => {
         return {
             'hour': date.getHours(),
             'minute': date.getMinutes(),
             'second': date.getSeconds()
         };
     },
-    '/api/unixtime': (date) => {
+    '/api/unixtime': date => {
         return {
             'unixtime': date.getTime()
         };
