@@ -21,7 +21,7 @@ http.createServer((req, res) => {
     const parsedURL = url.parse(req.url, true);
     const parser = parsedURL.pathname.split('/')[2];
 
-    if (!parser in dateParser) {
+    if (!dateParser[parser]) {
         res.writeHead(404);
         return res.end();
     }
